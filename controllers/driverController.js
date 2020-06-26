@@ -113,6 +113,7 @@ exports.getAllDrivers = async (req, res) => {
         const drivers = await Drivers.findAll({ include: Profiles });
         return responseMessage(res, 200, drivers)
     }catch(error) {
+        console.log(error, '>>>>>>>eeeeee')
         return responseMessage(res, 500, 'internal server error')
     }
 }
