@@ -1,6 +1,9 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const routes = require('./routes')
+const dotenv = require('dotenv')
+
+dotenv.config()
 
 const app = express();
 
@@ -13,7 +16,7 @@ app.get('/', (req, res) => res.status(200).json({
 
 app.use('/api/v1', routes)
 
-const PORT = 3001;
+const PORT = 3001 || process.env.PORT;
 app.listen(PORT,() => {
     console.log(`Server is listening to port ${PORT}`)
 })
