@@ -40,7 +40,7 @@ exports.addDriver = async (req, res) => {
       responseMessage(res, 400, 'There was an error creating driver"s profile');
     }
 
-    return responseMessage(res, 400, 'This driver"s email already exists');
+    return responseMessage(res, 409, 'This driver"s username already exists');
   } catch (error) {
     return responseMessage(res, 500, "internal server error");
   }
